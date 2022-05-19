@@ -43,8 +43,11 @@
 
 namespace compressed_image_transport {
 
-class CompressedSubscriber final : public image_transport::SimpleSubscriberPlugin<sensor_msgs::msg::CompressedImage>
+using CompressedImage = sensor_msgs::msg::CompressedImage;
+
+class CompressedSubscriber final : public image_transport::SimpleSubscriberPlugin<CompressedImage>
 {
+  using Base = image_transport::SimpleSubscriberPlugin<CompressedImage>;
 public:
   CompressedSubscriber(): logger_(rclcpp::get_logger("CompressedSubscriber")) {}
   virtual ~CompressedSubscriber() = default;
@@ -60,14 +63,14 @@ protected:
       rclcpp::Node * ,
       const std::string& base_topic,
       const Callback& callback,
-      rmw_qos_profile_t custom_qos) override;
+      rmw_qos_profile_t custom_qos) override final;
 
   void subscribeImpl(
       rclcpp::Node * ,
       const std::string& base_topic,
       const Callback& callback,
       rmw_qos_profile_t custom_qos,
-      rclcpp::SubscriptionOptions options) override;
+      rclcpp::SubscriptionOptions options) override final;
 
   void internalCallback(const sensor_msgs::msg::CompressedImage::ConstSharedPtr& message,
                         const Callback& user_cb) override;

@@ -74,7 +74,6 @@ void CompressedSubscriber::subscribeImpl(
     rclcpp::SubscriptionOptions options)
 {
     logger_ = node->get_logger();
-    typedef image_transport::SimpleSubscriberPlugin<CompressedImage> Base;
     Base::subscribeImplWithOptions(node, base_topic, callback, custom_qos, options);
     uint ns_len = node->get_effective_namespace().length();
     std::string param_base_name = base_topic.substr(ns_len);

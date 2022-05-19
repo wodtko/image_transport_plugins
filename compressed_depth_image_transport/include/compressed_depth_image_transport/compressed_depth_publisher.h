@@ -38,8 +38,11 @@
 
 namespace compressed_depth_image_transport {
 
-class CompressedDepthPublisher : public image_transport::SimplePublisherPlugin<sensor_msgs::msg::CompressedImage>
+using CompressedImage = sensor_msgs::msg::CompressedImage;
+
+class CompressedDepthPublisher : public image_transport::SimplePublisherPlugin<CompressedImage>
 {
+  using Base = image_transport::SimplePublisherPlugin<CompressedImage>;
 public:
   virtual ~CompressedDepthPublisher() {}
 
@@ -54,6 +57,12 @@ protected:
           rclcpp::Node * node,
           const std::string &base_topic,
           rmw_qos_profile_t custom_qos) override final;
+
+  virtual void advertiseImpl(
+      rclcpp::Node * node,
+      const std::string &base_topic,
+      rmw_qos_profile_t custom_qos,
+      rclcpp::PublisherOptions options) override final;
 
   virtual void publish(const sensor_msgs::msg::Image& message,
                        const PublishFn& publish_fn) const override final;
