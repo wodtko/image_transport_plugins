@@ -2,6 +2,9 @@
 Changelog for package theora_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 3.2.0 (2023-05-08)
 ------------------
 * Deprecated the following parameter names in favor of transport scoped ones. The remapping is listed below:
