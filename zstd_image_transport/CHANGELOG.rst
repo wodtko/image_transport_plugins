@@ -2,8 +2,8 @@
 Changelog for package zstd_image_transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.0.0 (2024-04-13)
+------------------
 * Added zstd image transport plugin (`#154 <https://github.com/ros-perception/image_transport_plugins/issues/154>`_)
 * Contributors: Alejandro Hernández Cordero, Kenji Brameld
 
